@@ -28,6 +28,7 @@ void draw()
     friction.mult(-1); // v * -1
     friction.normalize();
     friction.mult(frictionMagnitude); 
+    //friction.mult(w.mass);
     PVector forceToRight = new PVector(0.2, 0);
    
     w.applyForce(forceToRight);
@@ -47,10 +48,10 @@ void initializeMatter()
   int posY = 0;
   for(int i = 0; i < 8; i++)
   {
-    posY = (Window.windowHeight / 8) * (i - 4);
+    posY =(Window.windowHeight / 8) * (i - 4);
     matter[i] = new Walker();
     matter[i].position = new PVector(-500, posY);
-    matter[i].mass = 8 - i;
+    matter[i].mass = 8 - i + 1;
     matter[i].scale = matter[i].mass * 15;
     matter[i].setColor(random(255), random(255), random(255), random(150, 255));
   }
